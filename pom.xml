@@ -15,7 +15,7 @@
 
 	<modules>
 		<module>stats</module>
-		<module>ewm</module>
+		<module>main-service</module>
 	</modules>
 
 	<groupId>ru.practicum</groupId>
