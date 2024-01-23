@@ -172,7 +172,7 @@ public class EventController {
         return eventService.findEventsAdmin(users, states, categories, start, end, from, size);
     }
 
-    @PutMapping("/admin/events/{eventId}")
+    @PatchMapping("/admin/events/{eventId}")
     public EventFullDto updateAdmin(@PathVariable Long eventId,
                                     @RequestBody AdminUpdateEventRequest adminUpdateEventRequest,
                                     HttpServletRequest request) {
