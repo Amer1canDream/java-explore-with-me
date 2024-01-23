@@ -63,8 +63,11 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     @Transactional
     public CategoryDto updateCategory(Long id, CategoryDto categoryDto) {
-        Category category = getCategoryModelById(id);
 
+        if (categoryRepository.existsByName(categoryDto.getName())) {
+            throw new ConflictException("Category using the same name");
+        }
+        Category category = getCategoryModelById(id);
         log.info("Updating category with id={}", id);
         category.setName(categoryDto.getName());
         return CategoryMapper.toCategoryDto(category);
