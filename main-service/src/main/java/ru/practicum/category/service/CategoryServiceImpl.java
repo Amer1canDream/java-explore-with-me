@@ -2,6 +2,7 @@ package ru.practicum.category.service;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,6 +15,7 @@ import ru.practicum.events.model.entity.Event;
 import ru.practicum.events.repository.EventRepository;
 import ru.practicum.exceptions.ConflictException;
 import ru.practicum.exceptions.NotFoundException;
+import ru.practicum.exceptions.SQLConstraintViolationException;
 import ru.practicum.util.pageable.OffsetPageRequest;
 import ru.practicum.util.validation.SizeValidator;
 
@@ -64,6 +66,11 @@ public class CategoryServiceImpl implements CategoryService {
     @Transactional
     public CategoryDto updateCategory(Long id, CategoryDto categoryDto) {
         Category category = getCategoryModelById(id);
+        try {
+            category = categoryRepository.save(category);
+        } catch (DataIntegrityViolationException e) {
+            throw new SQLConstraintViolationException("Category with name = " + categoryDto.getName() + " already exists.");
+        }
         log.info("Updating category with id={}", id);
         category.setName(categoryDto.getName());
         return CategoryMapper.toCategoryDto(category);
