@@ -67,6 +67,9 @@ public class CategoryServiceImpl implements CategoryService {
         if (category.getName().equals(categoryDto.getName())) {
             throw new ConflictException("Category has already exists");
         }
+        if (categoryRepository.existsByName(categoryDto.getName())) {
+            throw new ConflictException("Category name has already exists");
+        }
         log.info("Updating category with id={}", id);
         category.setName(categoryDto.getName());
         return CategoryMapper.toCategoryDto(category);
