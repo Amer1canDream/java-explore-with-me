@@ -64,9 +64,6 @@ public class CategoryServiceImpl implements CategoryService {
     @Transactional
     public CategoryDto updateCategory(Long id, CategoryDto categoryDto) {
         Category category = getCategoryModelById(id);
-        if (categoryRepository.existsByName(categoryDto.getName())) {
-            throw new ConflictException("Category name has already exists");
-        }
         log.info("Updating category with id={}", id);
         category.setName(categoryDto.getName());
         return CategoryMapper.toCategoryDto(category);
