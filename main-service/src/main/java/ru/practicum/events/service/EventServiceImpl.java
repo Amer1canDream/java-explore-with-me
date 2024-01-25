@@ -127,8 +127,8 @@ public class EventServiceImpl implements EventService {
             event.setParticipantLimit(updateEventUserRequest.getParticipantLimit());
         }
 
-        if (updateEventUserRequest.getRequestModeration() != null) {
-            event.setRequestModeration(updateEventUserRequest.getRequestModeration());
+        if (updateEventUserRequest.getRequestModerationRequired() != null) {
+            event.setRequestModeration(updateEventUserRequest.getRequestModerationRequired());
         }
 
         if (updateEventUserRequest.getStateAction() != null) {
@@ -204,8 +204,8 @@ public class EventServiceImpl implements EventService {
             event.setParticipantLimit(updateEventAdminRequest.getParticipantLimit());
         }
 
-        if (updateEventAdminRequest.getRequestModeration() != null) {
-            event.setRequestModeration(updateEventAdminRequest.getRequestModeration());
+        if (updateEventAdminRequest.getRequestModerationRequired() != null) {
+            event.setRequestModeration(updateEventAdminRequest.getRequestModerationRequired());
         }
 
         if (updateEventAdminRequest.getTitle() != null) {
