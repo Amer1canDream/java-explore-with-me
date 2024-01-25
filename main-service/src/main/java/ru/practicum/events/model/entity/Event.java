@@ -46,7 +46,7 @@ public class Event {
     private LocalDateTime publishedOn;
 
     @Column(nullable = false)
-    private Boolean requestModerationRequired;
+    private Boolean requestModeration;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)

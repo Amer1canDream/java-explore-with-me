@@ -48,7 +48,7 @@ public class EventFullDto {
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", shape = JsonFormat.Shape.STRING)
     private LocalDateTime publishedOn;
-    private Boolean requestModerationRequired = true;
+    private Boolean requestModeration = true;
     private EventState state;
 
     @NotNull

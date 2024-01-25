@@ -33,7 +33,7 @@ public class UpdateEventUserRequest {
 
     @PositiveOrZero
     private Integer participantLimit;
-    private Boolean requestModerationRequired;
+    private Boolean requestModeration;
     private EventStateActionUser stateAction;
 
     @Size(max = 120, min = 3)

@@ -33,7 +33,7 @@ public class UpdateEventAdminRequest {
 
     @PositiveOrZero
     private Integer participantLimit;
-    private Boolean requestModerationRequired;
+    private Boolean requestModeration;
     private EventStateActionAdmin stateAction;
 
     @Size(max = 120, min = 3)
