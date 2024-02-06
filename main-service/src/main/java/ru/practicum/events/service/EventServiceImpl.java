@@ -55,11 +55,11 @@ public class EventServiceImpl implements EventService {
             throw new ValidationRequestException("Event date must not be before 2 hours from current time.");
         }
 
-        if (event.getAnnotation().isEmpty()) {
+        if (newEventDto.getAnnotation().isBlank()) {
             throw new ValidationRequestException("Empty annotation");
         }
 
-        if (event.getDescription().isEmpty()) {
+        if (newEventDto.getDescription().isBlank()) {
             throw new ValidationRequestException("Description annotation");
         }
 
