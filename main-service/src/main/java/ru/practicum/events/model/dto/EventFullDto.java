@@ -7,7 +7,6 @@ import ru.practicum.enums.EventState;
 import ru.practicum.location.model.dto.LocationDto;
 import ru.practicum.users.model.dto.UserShortDto;
 
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PositiveOrZero;
 import java.time.LocalDateTime;
