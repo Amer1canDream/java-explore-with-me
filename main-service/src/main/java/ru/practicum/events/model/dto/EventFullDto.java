@@ -7,6 +7,7 @@ import ru.practicum.enums.EventState;
 import ru.practicum.location.model.dto.LocationDto;
 import ru.practicum.users.model.dto.UserShortDto;
 
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PositiveOrZero;
 import java.time.LocalDateTime;
@@ -27,6 +28,8 @@ public class EventFullDto {
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", shape = JsonFormat.Shape.STRING)
     private LocalDateTime createdOn;
+    @NotNull
+    @NotEmpty
     private String description;
 
     @NotNull
@@ -52,6 +55,7 @@ public class EventFullDto {
     private EventState state;
 
     @NotNull
+    @NotEmpty
     private String title;
     private Long views;
 }
