@@ -5,9 +5,7 @@ import lombok.*;
 import ru.practicum.enums.EventStateActionUser;
 import ru.practicum.location.model.entity.Location;
 
-import javax.validation.constraints.Future;
-import javax.validation.constraints.PositiveOrZero;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.time.LocalDateTime;
 
 @Getter
@@ -23,6 +21,8 @@ public class UpdateEventUserRequest {
     private Long category;
 
     @Size(max = 7000, min = 20)
+    @NotEmpty
+    @NotNull
     private String description;
 
     @Future
@@ -37,5 +37,7 @@ public class UpdateEventUserRequest {
     private EventStateActionUser stateAction;
 
     @Size(max = 120, min = 3)
+    @NotEmpty
+    @NotNull
     private String title;
 }

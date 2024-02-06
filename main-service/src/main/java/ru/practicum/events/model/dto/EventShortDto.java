@@ -5,6 +5,7 @@ import lombok.*;
 import ru.practicum.category.model.dto.CategoryDto;
 import ru.practicum.users.model.dto.UserShortDto;
 
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PositiveOrZero;
 import java.time.LocalDateTime;
@@ -38,6 +39,7 @@ public class EventShortDto {
     private Boolean paid;
 
     @NotNull
+    @NotEmpty
     private String title;
     private Long views;
 }
