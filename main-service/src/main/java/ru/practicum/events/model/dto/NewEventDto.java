@@ -19,6 +19,7 @@ import java.time.LocalDateTime;
 public class NewEventDto {
 
     @NotNull
+    @NotEmpty
     @Size(max = 2000, min = 20)
     private String annotation;
 
