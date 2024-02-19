@@ -55,6 +55,14 @@ public class EventServiceImpl implements EventService {
             throw new ValidationRequestException("Event date must not be before 2 hours from current time.");
         }
 
+        if (newEventDto.getAnnotation().isBlank()) {
+            throw new ValidationRequestException("Empty annotation");
+        }
+
+        if (newEventDto.getDescription().isBlank()) {
+            throw new ValidationRequestException("Description annotation");
+        }
+
         Category category = categoryService.getCategoryModelById(newEventDto.getCategory());
         User user = userService.getUserModelById(userId);
         Location location = locationService.getLocation(newEventDto.getLocation().getLat(), newEventDto.getLocation().getLon());

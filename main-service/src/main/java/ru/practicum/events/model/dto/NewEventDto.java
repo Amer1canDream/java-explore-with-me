@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 import ru.practicum.location.model.entity.Location;
 
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PositiveOrZero;
 import javax.validation.constraints.Size;
@@ -18,6 +19,7 @@ import java.time.LocalDateTime;
 public class NewEventDto {
 
     @NotNull
+    @NotEmpty
     @Size(max = 2000, min = 20)
     private String annotation;
 
@@ -25,6 +27,7 @@ public class NewEventDto {
     private Long category;
 
     @NotNull
+    @NotEmpty
     @Size(max = 7000, min = 20)
     private String description;
 
@@ -41,6 +44,7 @@ public class NewEventDto {
     private Boolean requestModeration = true;
 
     @NotNull
+    @NotEmpty
     @Size(max = 120, min = 3)
     private String title;
 }
